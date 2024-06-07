@@ -1064,15 +1064,16 @@ my.org.User
   <span class="hljs-attr">payload:</span> <span class="hljs-string">$inputs.petOrderRequest</span>
 </code></pre>
 <p><strong>XML Templated Example</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/xml</span>
- <span class="hljs-attr">payload:</span> <span class="hljs-string">|
-   &lt;petOrder&gt;
-     &lt;petId&gt;{$inputs.pet_id}&lt;/petId&gt;
-     &lt;couponCode&gt;{$inputs.coupon_code}&lt;/couponCode&gt;
-     &lt;quantity&gt;{$inputs.quantity}&lt;/quantity&gt;
-     &lt;status&gt;placed&lt;/status&gt;
-     &lt;complete&gt;false&lt;/complete&gt;
-   &lt;/petOrder&gt;
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/xml</span>
+  <span class="hljs-attr">payload:</span> <span class="hljs-string">|
+    &lt;petOrder&gt;
+      &lt;petId&gt;{$inputs.pet_id}&lt;/petId&gt;
+      &lt;couponCode&gt;{$inputs.coupon_code}&lt;/couponCode&gt;
+      &lt;quantity&gt;{$inputs.quantity}&lt;/quantity&gt;
+      &lt;status&gt;placed&lt;/status&gt;
+      &lt;complete&gt;false&lt;/complete&gt;
+    &lt;/petOrder&gt;
 </span></code></pre>
 <p><strong>Form Data Example</strong></p>
 <pre class="nohighlight"><code>
@@ -1090,9 +1091,9 @@ my.org.User
   <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/x-www-form-urlencoded</span>
   <span class="hljs-attr">payload:</span> <span class="hljs-string">&quot;client_id={$inputs.clientId}&amp;grant_type={$inputs.grantType}&amp;redirect_uri={$inputs.redirectUri}&amp;client_secret={$inputs.clientSecret}&amp;code{$steps.browser-authorize.outputs.code}&amp;scope=$inputs.scope}&quot;</span>
 </code></pre>
-<h4>Payload Replacement Object</h4>
+</section></section><section><h3>Payload Replacement Object</h3>
 <p>Describes a location within a payload (e.g., a request body) and a value to set within the location.</p>
-<h5>Fixed Fields</h5>
+<section><h4>Fixed Fields</h4>
 <table>
 <thead>
 <tr>
@@ -1115,7 +1116,7 @@ my.org.User
 </tbody>
 </table>
 <p>This object MAY be extended with <a href="#specification-extensions">Specification Extensions</a>.</p>
-<h5>Payload Replacement Object Example</h5>
+</section><section><h4>Payload Replacement Object Example</h4>
 <p><strong>Runtime Expression Example</strong></p>
 <pre class="nohighlight"><code>
   <span class="hljs-attr">target:</span> <span class="hljs-string">/petId</span>
@@ -1126,7 +1127,7 @@ my.org.User
   <span class="hljs-attr">target:</span> <span class="hljs-string">/quantity</span>
   <span class="hljs-attr">value:</span> <span class="hljs-number">10</span>
 </code></pre>
-<h3>Runtime Expressions</h3>
+</section></section></section><section><h2>Runtime Expressions</h2>
 <p>A runtime expression allows values to be defined based on information that will be available within an HTTP message, an event message, and within objects serialized from the Arazzo document such as <a href="#workflow-object">workflows</a> or <a href="#step-object">steps</a>.</p>
 <p>The runtime expression is defined by the following <a href="https://tools.ietf.org/html/rfc5234">ABNF</a> syntax:</p>
 <pre class="nohighlight"><code>
@@ -1148,7 +1149,7 @@ my.org.User
       tchar <span class="hljs-operator">=</span> <span class="hljs-string">&quot;!&quot;</span> / <span class="hljs-string">&quot;#&quot;</span> / <span class="hljs-string">&quot;$&quot;</span> / <span class="hljs-string">&quot;%&quot;</span> / <span class="hljs-string">&quot;&amp;&quot;</span> / <span class="hljs-string">&quot;&#x27;&quot;</span> / <span class="hljs-string">&quot;*&quot;</span> / <span class="hljs-string">&quot;+&quot;</span> / <span class="hljs-string">&quot;-&quot;</span> / <span class="hljs-string">&quot;.&quot;</span> /
         <span class="hljs-string">&quot;^&quot;</span> / <span class="hljs-string">&quot;_&quot;</span> / <span class="hljs-string">&quot;`&quot;</span> / <span class="hljs-string">&quot;|&quot;</span> / <span class="hljs-string">&quot;~&quot;</span> / <span class="hljs-keyword">DIGIT</span> / <span class="hljs-keyword">ALPHA</span>
 </code></pre>
-<h4>Examples</h4>
+<section><h3>Examples</h3>
 <table>
 <thead>
 <tr>
@@ -1217,7 +1218,7 @@ my.org.User
 </table>
 <p>Runtime expressions preserve the type of the referenced value.
 Expressions can be embedded into string values by surrounding the expression with <code>{}</code> curly braces.</p>
-<h3>Specification Extensions</h3>
+</section></section><section><h2>Specification Extensions</h2>
 <p>While the Arazzo Specification tries to accommodate most use cases, additional data can be added to extend the specification at certain points.</p>
 <p>The extension properties are implemented as patterned fields that are always prefixed by <code>&quot;x-&quot;</code>.</p>
 <table>
@@ -1237,13 +1238,13 @@ Expressions can be embedded into string values by surrounding the expression wit
 </tbody>
 </table>
 <p>The extensions may or may not be supported by the available tooling, but those may be extended as well to add requested support (if tools are internal or open-sourced).</p>
-<h2>Security Considerations</h2>
+</section></section><section><h1>Security Considerations</h1>
 <p>The Arazzo Specification does not enforce a security mechanism. Security is left to the implementer, though TLS, specifically HTTPS may be recommended for exchanging sensitive workflows.</p>
-<p>Arazzo Descriptions can be JSON or YAML values. As such, all security considerations defined in <a href="https://tools.ietf.org/html/rfc8259">RFC8259</a> and within YAML version <a href="https://yaml.org/spec/1.2/spec.html">1.2</a> apply.</p>
+<p>Arazzo Descriptions can be JSON or YAML values. As such, all security considerations defined in [[!RFC8259]] and within YAML version <a href="https://yaml.org/spec/1.2/spec.html">1.2</a> apply.</p>
 <p>Arazzo Descriptions are frequently written by untrusted third parties, to be deployed on public Internet servers. Processing an Arazzo Description can cause both safe and unsafe operations to be performed on arbitrary network resources. It is the responsibility of the description consumer to ensure that the operations performed are not harmful.</p>
-<h2>IANA Considerations</h2>
+</section><section><h1>IANA Considerations</h1>
 <p>The proposed MIME media types for the Arazzo Specification are described below.</p>
-<h3>application/vnd.oai.workflows</h3>
+<section><h2>application/vnd.oai.workflows</h2>
 <p>The default (or general) MIME type for Arazzo documents (e.g. workflows) is defined as follows:</p>
 <p>  Media type name: application</p>
 <p>  Media subtype name: vnd.oai.workflows</p>
@@ -1253,7 +1254,7 @@ Expressions can be embedded into string values by surrounding the expression wit
 <p>  Security considerations: See <a href="#security-considerations">security considerations</a> above.</p>
 <p>  Interoperability considerations: N/A</p>
 <p><strong>Note:</strong> When using the <code>application/vnd.oai.workflows</code> media type the consumer should be prepared to receive YAML formatted content</p>
-<h3>application/vnd.oai.workflows+json</h3>
+</section><section><h2>application/vnd.oai.workflows+json</h2>
 <p>The proposed MIME media type for Arazzo documents (e.g. workflows) that require a JSON-specific media type is defined as follows:</p>
 <p>  Media type name: application</p>
 <p>  Media subtype name: vnd.oai.workflows+json</p>
@@ -1262,7 +1263,7 @@ Expressions can be embedded into string values by surrounding the expression wit
 <p>  Encoding considerations: Encoding considerations are identical to those specified for the <code>application/json</code> media type.</p>
 <p>  Security considerations: See <a href="#security-considerations">security considerations</a> above.</p>
 <p>  Interoperability considerations: N/A</p>
-<h3>application/vnd.oai.workflows+yaml</h3>
+</section><section><h2>application/vnd.oai.workflows+yaml</h2>
 <p>The proposed MIME media type for Arazzo documents (e.g. workflows) that require a YAML-specific media type is defined as follows:</p>
 <p>  Media type name: application</p>
 <p>  Media subtype name: vnd.oai.workflows+yaml</p>
@@ -1271,7 +1272,7 @@ Expressions can be embedded into string values by surrounding the expression wit
 <p>  Encoding considerations: Encoding considerations are identical to those specified for the <code>application/yaml</code> media type.</p>
 <p>  Security considerations: See <a href="#security-considerations">security considerations</a> above.</p>
 <p>  Interoperability considerations: N/A</p>
-<h2>Appendix A: Revision History</h2>
+</section></section><section><h1>Appendix A: Revision History</h1>
 <table>
 <thead>
 <tr>
