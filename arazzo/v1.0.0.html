@@ -968,7 +968,7 @@ my.org.User
 <li>XPath as described by <a href="https://www.w3.org/TR/xpath-31">XML Path Language 3.1</a></li>
 </ul>
 <p>Defining this object gives the ability to utilize tooling compatible with older versions of either JSONPath or XPath.</p>
-<h5>Fixed Fields</h5>
+<section><h4>Fixed Fields</h4>
 <table>
 <thead>
 <tr>
@@ -991,7 +991,7 @@ my.org.User
 </tbody>
 </table>
 <p>This object MAY be extended with <a href="#specification-extensions">Specification Extensions</a>.</p>
-<section><h4>Criterion Expression Type Example</h4>
+</section><section><h4>Criterion Expression Type Example</h4>
 <p><strong>JSONPath Example</strong></p>
 <pre class="nohighlight"><code>
   <span class="hljs-attr">type:</span> <span class="hljs-string">jsonpath</span>
@@ -1034,31 +1034,34 @@ my.org.User
 <p>This object MAY be extended with <a href="#specification-extensions">Specification Extensions</a>.</p>
 </section><section><h4>RequestBody Object Example</h4>
 <p><strong>JSON Templated Example</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
- <span class="hljs-attr">payload:</span> <span class="hljs-string">|
-   {
-     &quot;petOrder&quot;: {
-       &quot;petId&quot;: &quot;{$inputs.pet_id}&quot;,
-       &quot;couponCode&quot;: &quot;{$inputs.coupon_code}&quot;,
-       &quot;quantity&quot;: &quot;{$inputs.quantity}&quot;,
-       &quot;status&quot;: &quot;placed&quot;,
-       &quot;complete&quot;: false
-     }
-   }
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
+  <span class="hljs-attr">payload:</span> <span class="hljs-string">|
+    {
+      &quot;petOrder&quot;: {
+        &quot;petId&quot;: &quot;{$inputs.pet_id}&quot;,
+        &quot;couponCode&quot;: &quot;{$inputs.coupon_code}&quot;,
+        &quot;quantity&quot;: &quot;{$inputs.quantity}&quot;,
+        &quot;status&quot;: &quot;placed&quot;,
+        &quot;complete&quot;: false
+      }
+    }
 </span></code></pre>
 <p><strong>JSON Object Example</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
- <span class="hljs-attr">payload:</span> 
-   <span class="hljs-attr">petOrder:</span>
-     <span class="hljs-attr">petId:</span> <span class="hljs-string">$inputs.pet_id</span>
-     <span class="hljs-attr">couponCode:</span> <span class="hljs-string">$inputs.coupon_code</span>
-     <span class="hljs-attr">quantity:</span> <span class="hljs-string">$inputs.quantity</span>
-     <span class="hljs-attr">status:</span> <span class="hljs-string">placed</span>
-     <span class="hljs-attr">complete:</span> <span class="hljs-literal">false</span>
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
+  <span class="hljs-attr">payload:</span> 
+    <span class="hljs-attr">petOrder:</span>
+      <span class="hljs-attr">petId:</span> <span class="hljs-string">$inputs.pet_id</span>
+      <span class="hljs-attr">couponCode:</span> <span class="hljs-string">$inputs.coupon_code</span>
+      <span class="hljs-attr">quantity:</span> <span class="hljs-string">$inputs.quantity</span>
+      <span class="hljs-attr">status:</span> <span class="hljs-string">placed</span>
+      <span class="hljs-attr">complete:</span> <span class="hljs-literal">false</span>
 </code></pre>
 <p><strong>Complete Runtime Expression</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
- <span class="hljs-attr">payload:</span> <span class="hljs-string">$inputs.petOrderRequest</span>
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/json</span>
+  <span class="hljs-attr">payload:</span> <span class="hljs-string">$inputs.petOrderRequest</span>
 </code></pre>
 <p><strong>XML Templated Example</strong></p>
 <pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/xml</span>
@@ -1072,18 +1075,20 @@ my.org.User
    &lt;/petOrder&gt;
 </span></code></pre>
 <p><strong>Form Data Example</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/x-www-form-urlencoded</span>
- <span class="hljs-attr">payload:</span> 
-   <span class="hljs-attr">client_id:</span> <span class="hljs-string">$inputs.clientId</span>
-   <span class="hljs-attr">grant_type:</span> <span class="hljs-string">$inputs.grantType</span>
-   <span class="hljs-attr">redirect_uri:</span> <span class="hljs-string">$inputs.redirectUri</span>
-   <span class="hljs-attr">client_secret:</span> <span class="hljs-string">$inputs.clientSecret</span>
-   <span class="hljs-attr">code:</span> <span class="hljs-string">$steps.browser-authorize.outputs.code</span>
-   <span class="hljs-attr">scope:</span> <span class="hljs-string">$inputs.scope</span>  
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/x-www-form-urlencoded</span>
+  <span class="hljs-attr">payload:</span> 
+    <span class="hljs-attr">client_id:</span> <span class="hljs-string">$inputs.clientId</span>
+    <span class="hljs-attr">grant_type:</span> <span class="hljs-string">$inputs.grantType</span>
+    <span class="hljs-attr">redirect_uri:</span> <span class="hljs-string">$inputs.redirectUri</span>
+    <span class="hljs-attr">client_secret:</span> <span class="hljs-string">$inputs.clientSecret</span>
+    <span class="hljs-attr">code:</span> <span class="hljs-string">$steps.browser-authorize.outputs.code</span>
+    <span class="hljs-attr">scope:</span> <span class="hljs-string">$inputs.scope</span>  
 </code></pre>
 <p><strong>Form Data String Example</strong></p>
-<pre class="nohighlight"><code> <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/x-www-form-urlencoded</span>
- <span class="hljs-attr">payload:</span> <span class="hljs-string">&quot;client_id={$inputs.clientId}&amp;grant_type={$inputs.grantType}&amp;redirect_uri={$inputs.redirectUri}&amp;client_secret={$inputs.clientSecret}&amp;code{$steps.browser-authorize.outputs.code}&amp;scope=$inputs.scope}&quot;</span>
+<pre class="nohighlight"><code>
+  <span class="hljs-attr">contentType:</span> <span class="hljs-string">application/x-www-form-urlencoded</span>
+  <span class="hljs-attr">payload:</span> <span class="hljs-string">&quot;client_id={$inputs.clientId}&amp;grant_type={$inputs.grantType}&amp;redirect_uri={$inputs.redirectUri}&amp;client_secret={$inputs.clientSecret}&amp;code{$steps.browser-authorize.outputs.code}&amp;scope=$inputs.scope}&quot;</span>
 </code></pre>
 <h4>Payload Replacement Object</h4>
 <p>Describes a location within a payload (e.g., a request body) and a value to set within the location.</p>
@@ -1113,13 +1118,13 @@ my.org.User
 <h5>Payload Replacement Object Example</h5>
 <p><strong>Runtime Expression Example</strong></p>
 <pre class="nohighlight"><code>
-    <span class="hljs-attr">target:</span> <span class="hljs-string">/petId</span>
-    <span class="hljs-attr">value:</span> <span class="hljs-string">$inputs.pet_id</span>
+  <span class="hljs-attr">target:</span> <span class="hljs-string">/petId</span>
+  <span class="hljs-attr">value:</span> <span class="hljs-string">$inputs.pet_id</span>
 </code></pre>
 <p><strong>Literal Example</strong></p>
 <pre class="nohighlight"><code>
-    <span class="hljs-attr">target:</span> <span class="hljs-string">/quantity</span>
-    <span class="hljs-attr">value:</span> <span class="hljs-number">10</span>
+  <span class="hljs-attr">target:</span> <span class="hljs-string">/quantity</span>
+  <span class="hljs-attr">value:</span> <span class="hljs-number">10</span>
 </code></pre>
 <h3>Runtime Expressions</h3>
 <p>A runtime expression allows values to be defined based on information that will be available within an HTTP message, an event message, and within objects serialized from the Arazzo document such as <a href="#workflow-object">workflows</a> or <a href="#step-object">steps</a>.</p>
@@ -1143,7 +1148,7 @@ my.org.User
       tchar <span class="hljs-operator">=</span> <span class="hljs-string">&quot;!&quot;</span> / <span class="hljs-string">&quot;#&quot;</span> / <span class="hljs-string">&quot;$&quot;</span> / <span class="hljs-string">&quot;%&quot;</span> / <span class="hljs-string">&quot;&amp;&quot;</span> / <span class="hljs-string">&quot;&#x27;&quot;</span> / <span class="hljs-string">&quot;*&quot;</span> / <span class="hljs-string">&quot;+&quot;</span> / <span class="hljs-string">&quot;-&quot;</span> / <span class="hljs-string">&quot;.&quot;</span> /
         <span class="hljs-string">&quot;^&quot;</span> / <span class="hljs-string">&quot;_&quot;</span> / <span class="hljs-string">&quot;`&quot;</span> / <span class="hljs-string">&quot;|&quot;</span> / <span class="hljs-string">&quot;~&quot;</span> / <span class="hljs-keyword">DIGIT</span> / <span class="hljs-keyword">ALPHA</span>
 </code></pre>
-<h5>Examples</h5>
+<h4>Examples</h4>
 <table>
 <thead>
 <tr>
